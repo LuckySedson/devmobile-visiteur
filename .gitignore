@@ -1,0 +1,21 @@
+# Node
+node_modules/
+npm-debug.log
+
+# React Native
+android/.gradle/
+android/app/build/
+android/build/
+ios/build/
+
+# Java
+target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

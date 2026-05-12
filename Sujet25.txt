@@ -1,0 +1,6 @@
+Developper une application Android ayant acces a une base distante MySQL/Pg permettant :
+- d'ajouter des donnees dans une table Visiteur(numvisiteur, nom, nombre de jours, tarif journalier)
+- d'afficher les donnees dans un composant ListView ( nom, nombre de jours, Tarif journalier, tarif) avec tarif = Nombre de jours * tarif journalier
+- de modifier et supprimer un enregistrement a partir du ListView
+- d'afficher en bas du tableau le tarif total minimal et maximal payes par les visiteurs
+- de visualiser le tarif total, minimal et maximal dans un histogramme ou un camembert
