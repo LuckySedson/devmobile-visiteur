@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="👥 Gestion des Visiteurs"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#2196F3"
+        android:padding="16dp"
+        android:gravity="center"/>
+
+    <!-- Bouton Ajouter -->
+    <Button
+        android:id="@+id/btnAjouter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Ajouter un visiteur"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"/>
+
+    <!-- Liste RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"/>
+
+    <!-- Footer Stats -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#E3F2FD"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total : -- €"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Min : -- €"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Max : -- €"
+            android:textStyle="bold"
+            android:textColor="#C62828"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Bouton Stats -->
+    <Button
+        android:id="@+id/btnStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📊 Voir les statistiques"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
