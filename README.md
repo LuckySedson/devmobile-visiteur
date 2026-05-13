@@ -18,7 +18,8 @@ mvn spring-boot:run
 
 # 2. Démarrer le frontend React Native
 cd VisiteurApp
-npx react-native start
+npx react-native start --reset-cache
 
 # 3. Dans un autre terminal, lancer sur émulateur
+cd VisiteurApp
 npx react-native run-android
