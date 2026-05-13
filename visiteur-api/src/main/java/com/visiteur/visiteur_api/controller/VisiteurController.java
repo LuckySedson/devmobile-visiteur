@@ -40,6 +40,10 @@ public class VisiteurController {
 
     @PostMapping
     public Visiteur create(@RequestBody Visiteur v) {
+        System.out.println(">>> Reçu: nom=" + v.getNom()
+                + ", jours=" + v.getNombreJours()
+                + ", tarif=" + v.getTarifJournalier());
+        v.setNumvisiteur(null);
         return service.create(v);
     }
 

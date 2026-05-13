@@ -54,17 +54,30 @@ class FormulaireActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    if (numvisiteur == 0L) {
+                    android.util.Log.d("FORMULAIRE", "Envoi: nom=$nom, jours=$jours, tarifJ=$tarifJ")
+
+                    val response = if (numvisiteur == 0L) {
                         RetrofitClient.instance.createVisiteur(visiteur)
-                        Toast.makeText(this@FormulaireActivity,
-                            "Visiteur ajouté !", Toast.LENGTH_SHORT).show()
                     } else {
                         RetrofitClient.instance.updateVisiteur(numvisiteur, visiteur)
-                        Toast.makeText(this@FormulaireActivity,
-                            "Visiteur modifié !", Toast.LENGTH_SHORT).show()
                     }
-                    finish()
+
+                    // Log réponse
+                    android.util.Log.d("FORMULAIRE", "Code: ${response.code()}")
+                    android.util.Log.d("FORMULAIRE", "Erreur body: ${response.errorBody()?.string()}")
+
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@FormulaireActivity,
+                            if (numvisiteur == 0L) "Visiteur ajouté !" else "Visiteur modifié !",
+                            Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@FormulaireActivity,
+                            "Erreur serveur : ${response.code()}",
+                            Toast.LENGTH_LONG).show()
+                    }
                 } catch (e: Exception) {
+                    android.util.Log.e("FORMULAIRE", "Exception: ${e.message}")
                     Toast.makeText(this@FormulaireActivity,
                         "Erreur : ${e.message}", Toast.LENGTH_LONG).show()
                 }

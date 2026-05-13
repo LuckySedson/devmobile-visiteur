@@ -28,6 +28,7 @@ public class VisiteurService {
     }
 
     public Visiteur create(Visiteur v) {
+        v.setNumvisiteur(null);
         return repository.save(v);
     }
 

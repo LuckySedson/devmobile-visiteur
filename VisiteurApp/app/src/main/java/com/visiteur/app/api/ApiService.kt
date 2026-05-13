@@ -9,9 +9,11 @@ interface ApiService {
     @GET("visiteurs")
     suspend fun getVisiteurs(): Response<List<Visiteur>>
 
+    @Headers("Content-Type: application/json")
     @POST("visiteurs")
     suspend fun createVisiteur(@Body visiteur: Visiteur): Response<Visiteur>
 
+    @Headers("Content-Type: application/json")
     @PUT("visiteurs/{id}")
     suspend fun updateVisiteur(
         @Path("id") id: Long,

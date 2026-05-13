@@ -46,8 +46,6 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     // --- AJOUTE CES LIGNES POUR LA NAVIGATION ---
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("androidx.activity:activity-ktx:1.8.2")
 
     // Retrofit pour les appels HTTP vers Spring Boot
