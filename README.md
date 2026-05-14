@@ -21,3 +21,8 @@ cd VisiteurApp
 emulator -avd Pixel6_API33 -no-snapshot-load -gpu swiftshader_indirect
 
 # 3. Dans un autre terminal, lancer sur émulateur
+Run
+
+# 4. Sur application 
+Meme wifi
+ipconfig
