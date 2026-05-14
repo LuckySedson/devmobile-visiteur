@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.visiteur.app.R
 import com.visiteur.app.api.RetrofitClient
@@ -69,6 +70,11 @@ class StatsActivity : AppCompatActivity() {
                         colors = pieColors
                         valueTextSize = 13f
                         valueTextColor = android.graphics.Color.WHITE
+                        valueFormatter = object : ValueFormatter() {
+                            override fun getFormattedValue(value: Float): String {
+                                return "${value.toInt()} Ar"
+                            }
+                        }
                     }
 
                     pieChart.data = PieData(pieDataSet)
@@ -79,9 +85,14 @@ class StatsActivity : AppCompatActivity() {
                     pieChart.animateY(1000)
                     pieChart.invalidate()
                 }
+            } catch (e: java.net.ConnectException) {
+                Toast.makeText(this@StatsActivity,
+                    "⚠️ Serveur inaccessible, vérifiez votre connexion",
+                    Toast.LENGTH_LONG).show()
             } catch (e: Exception) {
                 Toast.makeText(this@StatsActivity,
-                    "Erreur stats : ${e.message}", Toast.LENGTH_LONG).show()
+                    "Erreur stats : ${e.message}",
+                    Toast.LENGTH_LONG).show()
             }
         }
     }

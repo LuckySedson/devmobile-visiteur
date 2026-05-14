@@ -47,6 +47,18 @@ class FormulaireActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (jours <= 0) {
+                Toast.makeText(this, "Le nombre de jours doit être supérieur à 0",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (tarifJ <= 0) {
+                Toast.makeText(this, "Le tarif journalier doit être supérieur à 0",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val tarif = jours * tarifJ
             tvTarif.text = "Tarif total : ${tarif.toInt()} Ar"
 
@@ -76,10 +88,15 @@ class FormulaireActivity : AppCompatActivity() {
                             "Erreur serveur : ${response.code()}",
                             Toast.LENGTH_LONG).show()
                     }
+                } catch (e: java.net.ConnectException) {
+                    Toast.makeText(this@FormulaireActivity,
+                        "⚠️ Serveur inaccessible, vérifiez votre connexion",
+                        Toast.LENGTH_LONG).show()
                 } catch (e: Exception) {
                     android.util.Log.e("FORMULAIRE", "Exception: ${e.message}")
                     Toast.makeText(this@FormulaireActivity,
-                        "Erreur : ${e.message}", Toast.LENGTH_LONG).show()
+                        "Erreur : ${e.message}",
+                        Toast.LENGTH_LONG).show()
                 }
             }
         }

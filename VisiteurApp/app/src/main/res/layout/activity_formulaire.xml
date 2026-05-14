@@ -22,7 +22,7 @@
             android:id="@+id/etNom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ex : Alice Martin"
+            android:hint="Ex : Rakoto paul"
             android:inputType="textPersonName"
             android:padding="12dp"
             android:background="@drawable/edit_text_border"/>

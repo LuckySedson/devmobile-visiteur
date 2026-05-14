@@ -70,9 +70,14 @@ class MainActivity : AppCompatActivity() {
                     adapter.updateData(liste)
                     chargerStats()
                 }
+            } catch (e: java.net.ConnectException) {
+                Toast.makeText(this@MainActivity,
+                    "⚠️ Serveur inaccessible, vérifiez votre connexion",
+                    Toast.LENGTH_LONG).show()
             } catch (e: Exception) {
                 Toast.makeText(this@MainActivity,
-                    "Erreur connexion : ${e.message}", Toast.LENGTH_LONG).show()
+                    "Erreur : ${e.message}",
+                    Toast.LENGTH_LONG).show()
             }
         }
     }
