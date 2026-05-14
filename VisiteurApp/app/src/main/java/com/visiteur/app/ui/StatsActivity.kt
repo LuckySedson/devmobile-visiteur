@@ -38,7 +38,7 @@ class StatsActivity : AppCompatActivity() {
                         BarEntry(1f, stats["min"]?.toFloat()   ?: 0f),
                         BarEntry(2f, stats["max"]?.toFloat()   ?: 0f)
                     )
-                    val barDataSet = BarDataSet(barEntries, "Tarifs (€)").apply {
+                    val barDataSet = BarDataSet(barEntries, "Tarifs (Ar)").apply {
                         colors = ColorTemplate.MATERIAL_COLORS.toList()
                         valueTextSize = 12f
                     }
@@ -51,17 +51,31 @@ class StatsActivity : AppCompatActivity() {
                     barChart.animateY(1000)
                     barChart.invalidate()
 
-                    // PieChart
+                    // PieChart — Total, Min, Max
                     val pieChart = findViewById<PieChart>(R.id.pieChart)
-                    val pieEntries = visiteurs.map { v ->
-                        PieEntry(v.tarif.toFloat(), v.nom)
+                    val pieEntries = listOf(
+                        PieEntry(stats["total"]?.toFloat() ?: 0f, "Total"),
+                        PieEntry(stats["min"]?.toFloat()   ?: 0f, "Min"),
+                        PieEntry(stats["max"]?.toFloat()   ?: 0f, "Max")
+                    )
+
+                    val pieColors = listOf(
+                        ColorTemplate.MATERIAL_COLORS[0],
+                        ColorTemplate.MATERIAL_COLORS[1],
+                        ColorTemplate.MATERIAL_COLORS[2]
+                    )
+
+                    val pieDataSet = PieDataSet(pieEntries, "").apply {
+                        colors = pieColors
+                        valueTextSize = 13f
+                        valueTextColor = android.graphics.Color.WHITE
                     }
-                    val pieDataSet = PieDataSet(pieEntries, "Répartition").apply {
-                        colors = ColorTemplate.COLORFUL_COLORS.toList()
-                        valueTextSize = 11f
-                    }
+
                     pieChart.data = PieData(pieDataSet)
                     pieChart.description.isEnabled = false
+                    pieChart.legend.isEnabled = true
+                    pieChart.setEntryLabelColor(android.graphics.Color.WHITE)
+                    pieChart.setEntryLabelTextSize(12f)
                     pieChart.animateY(1000)
                     pieChart.invalidate()
                 }

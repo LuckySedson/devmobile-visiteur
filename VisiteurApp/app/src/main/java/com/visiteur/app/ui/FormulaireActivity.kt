@@ -48,7 +48,7 @@ class FormulaireActivity : AppCompatActivity() {
             }
 
             val tarif = jours * tarifJ
-            tvTarif.text = "Tarif total : ${"%.2f".format(tarif)} €"
+            tvTarif.text = "Tarif total : ${tarif.toInt()} Ar"
 
             val visiteur = Visiteur(numvisiteur, nom, jours, tarifJ)
 

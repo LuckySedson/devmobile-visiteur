@@ -83,9 +83,9 @@ class MainActivity : AppCompatActivity() {
                 val reponse = RetrofitClient.instance.getStats()
                 if (reponse.isSuccessful) {
                     val stats = reponse.body() ?: return@launch
-                    tvTotal.text = "Total : ${"%.2f".format(stats["total"])} €"
-                    tvMin.text   = "Min   : ${"%.2f".format(stats["min"])} €"
-                    tvMax.text   = "Max   : ${"%.2f".format(stats["max"])} €"
+                    tvTotal.text = "Total : ${stats["total"]?.toInt()} Ar"
+                    tvMin.text   = "Min   : ${stats["min"]?.toInt()} Ar"
+                    tvMax.text   = "Max   : ${stats["max"]?.toInt()} Ar"
                 }
             } catch (e: Exception) { /* silencieux */ }
         }

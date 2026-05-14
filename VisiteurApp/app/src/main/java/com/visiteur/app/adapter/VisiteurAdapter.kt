@@ -34,8 +34,8 @@ class VisiteurAdapter(
         val v = visiteurs[position]
         holder.tvNom.text         = v.nom
         holder.tvNombreJours.text = "${v.nombreJours} jours"
-        holder.tvTarifJ.text      = "${v.tarifJournalier} €/jour"
-        holder.tvTarif.text       = "Total : ${"%.2f".format(v.tarif)} €"
+        holder.tvTarifJ.text = "${v.tarifJournalier.toInt()} Ar/jour"
+        holder.tvTarif.text  = "Total : ${v.tarif.toInt()} Ar"
 
         holder.btnEdit.setOnClickListener   { onEdit(v) }
         holder.btnDelete.setOnClickListener { onDelete(v) }
